@@ -1,24 +1,16 @@
 package medtrakr.cricbuzz.ethens.medtrakr.activity.reminder;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import de.greenrobot.event.EventBus;
-import java.util.Date;
 import medtrakr.cricbuzz.ethens.medtrakr.R;
-import medtrakr.cricbuzz.ethens.medtrakr.activity.calendar.CalendarViewHolder;
 import medtrakr.cricbuzz.ethens.medtrakr.activity.common.BaseActivity;
 import medtrakr.cricbuzz.ethens.medtrakr.common.handler.TrakrHandler;
-import medtrakr.cricbuzz.ethens.medtrakr.common.navigator.ActivityNavigator;
 import medtrakr.cricbuzz.ethens.medtrakr.common.widget.TwoButtonDialogListener;
 import medtrakr.cricbuzz.ethens.medtrakr.common.widget.TwoButtonSimpleDialog;
 import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
 import medtrakr.cricbuzz.ethens.medtrakr.di.ComponentFactory;
 import medtrakr.cricbuzz.ethens.medtrakr.eventbus.AppCommonEvent;
-import medtrakr.cricbuzz.ethens.medtrakr.eventbus.CalendarNavigationEvents;
 import medtrakr.cricbuzz.ethens.medtrakr.eventbus.ReminderModificationEvent;
 
 /**

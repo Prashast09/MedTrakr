@@ -5,6 +5,6 @@ package medtrakr.cricbuzz.ethens.medtrakr.eventbus;
  */
 
 public class AppCommonEvent {
-  public static class ReminderModifiedEvent{}
-
+  public static class ReminderModifiedEvent {
+  }
 }

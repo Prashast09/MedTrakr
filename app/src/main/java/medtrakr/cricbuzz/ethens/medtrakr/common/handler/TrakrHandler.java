@@ -13,11 +13,9 @@ import medtrakr.cricbuzz.ethens.medtrakr.utils.MathUtils;
 
 public class TrakrHandler {
 
-
   public TrakrHandler(VoidCallback voidCallback) {
     getHandler(false).post(voidCallback::onResponse);
   }
-
 
   private Handler getHandler(boolean runOnUiThread) {
     Looper looper;
@@ -36,5 +34,4 @@ public class TrakrHandler {
       }
     };
   }
-
 }

@@ -1,10 +1,8 @@
 package medtrakr.cricbuzz.ethens.medtrakr.common.widget;
 
-import android.content.Context;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import medtrakr.cricbuzz.ethens.medtrakr.R;
 
 /**
  * Created by ethens on 02/09/17.
@@ -33,5 +31,4 @@ public class TwoButtonSimpleDialog {
         Html.fromHtml("<font color='#000000'>" + title + "</font>"))
         .setMessage(Html.fromHtml("<font color='#000000'>" + message + "</font>"));
   }
-
 }

@@ -2,7 +2,6 @@ package medtrakr.cricbuzz.ethens.medtrakr.config;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import java.util.Date;
 
 /**
@@ -10,6 +9,15 @@ import java.util.Date;
  */
 
 public class ReminderConfig implements Parcelable {
+  public static final Creator<ReminderConfig> CREATOR = new Creator<ReminderConfig>() {
+    @Override public ReminderConfig createFromParcel(Parcel in) {
+      return new ReminderConfig(in);
+    }
+
+    @Override public ReminderConfig[] newArray(int size) {
+      return new ReminderConfig[size];
+    }
+  };
   /**
    * name, dosage, date, time
    */
@@ -25,7 +33,8 @@ public class ReminderConfig implements Parcelable {
   private String dosage;
   private Boolean medTaken;
 
-  public ReminderConfig(){}
+  public ReminderConfig() {
+  }
 
   public ReminderConfig(Parcel in) {
     reminderText = in.readString();
@@ -39,18 +48,24 @@ public class ReminderConfig implements Parcelable {
     intentId = in.readString();
     dosage = in.readString();
     this.medTaken = in.readByte() != 0;
-
   }
 
-  public static final Creator<ReminderConfig> CREATOR = new Creator<ReminderConfig>() {
-    @Override public ReminderConfig createFromParcel(Parcel in) {
-      return new ReminderConfig(in);
-    }
+  @Override public int describeContents() {
+    return 0;
+  }
 
-    @Override public ReminderConfig[] newArray(int size) {
-      return new ReminderConfig[size];
-    }
-  };
+  @Override public void writeToParcel(Parcel parcel, int i) {
+    parcel.writeString(reminderText);
+    parcel.writeString(reminderId);
+    parcel.writeString(reminderType);
+    parcel.writeLong(this.reminderTime != null ? this.reminderTime.getTime() : -1);
+    parcel.writeInt(recurring);
+    parcel.writeString(reminderDisplayDay);
+    parcel.writeString(reminderDisplayMonth);
+    parcel.writeString(intentId);
+    parcel.writeString(dosage);
+    parcel.writeByte(this.medTaken ? (byte) 1 : (byte) 0);
+  }
 
   public String getReminderText() {
     return reminderText;
@@ -132,25 +147,7 @@ public class ReminderConfig implements Parcelable {
     this.medTaken = medTaken;
   }
 
-  @Override public int describeContents() {
-    return 0;
-  }
-
-  @Override public void writeToParcel(Parcel parcel, int i) {
-    parcel.writeString(reminderText);
-    parcel.writeString(reminderId);
-    parcel.writeString(reminderType);
-    parcel.writeLong(this.reminderTime != null ? this.reminderTime.getTime() : -1);
-    parcel.writeInt(recurring);
-    parcel.writeString(reminderDisplayDay);
-    parcel.writeString(reminderDisplayMonth);
-    parcel.writeString(intentId);
-    parcel.writeString(dosage);
-    parcel.writeByte(this.medTaken ? (byte) 1 : (byte) 0);
-  }
-
   public int getRecurringType() {
     return recurring;
   }
-
 }

@@ -1,10 +1,7 @@
 package medtrakr.cricbuzz.ethens.medtrakr.di;
 
-import medtrakr.cricbuzz.ethens.medtrakr.activity.calendar.CalendarActivity;
-import medtrakr.cricbuzz.ethens.medtrakr.activity.common.BaseActivity;
 import medtrakr.cricbuzz.ethens.medtrakr.common.application.TrakrApplication;
 import medtrakr.cricbuzz.ethens.medtrakr.di.calendar.CalendarComponent;
-import medtrakr.cricbuzz.ethens.medtrakr.di.calendar.CalendarModule;
 import medtrakr.cricbuzz.ethens.medtrakr.di.calendar.ReminderDaoMOdule;
 import medtrakr.cricbuzz.ethens.medtrakr.di.database.DatabaseModule;
 
@@ -34,25 +31,23 @@ public class ComponentFactory {
     return componentFactory;
   }
 
-  public TrakrComponent getTrakrComponent(){
+  public TrakrComponent getTrakrComponent() {
     return trakrComponent;
   }
 
   /**
    * For calendar activity
+   *
    * @return Calendar Component
    */
   public CalendarComponent getCalendarComponent() {
     if (calendarComponent == null) {
-      calendarComponent =
-          getTrakrComponent().plus(new ReminderDaoMOdule(), new DatabaseModule());
+      calendarComponent = getTrakrComponent().plus(new ReminderDaoMOdule(), new DatabaseModule());
     }
     return calendarComponent;
   }
 
-
   public void removeCalendarComponent() {
     calendarComponent = null;
   }
-
 }

@@ -12,7 +12,6 @@ public class ReminderInfoQuery {
   @Inject ReminderInfoQuery() {
   }
 
-
   public String getReminderForId(long reminderId) {
     return "select * from "
         + TrakrContract.Reminders.TABLE_NAME
@@ -36,7 +35,9 @@ public class ReminderInfoQuery {
         + TrakrContract.Reminders.TABLE_NAME
         + " where "
         + TrakrContract.Reminders.COLUMN_NAME_STATUS
-        + " = 'ACTIVE' and " + TrakrContract.Reminders.COLUMN_NAME_MED_TAKEN + " = '1'";
+        + " = 'ACTIVE' and "
+        + TrakrContract.Reminders.COLUMN_NAME_MED_TAKEN
+        + " = '1'";
   }
 
   public String getMedNotTakenQuery() {
@@ -45,7 +46,9 @@ public class ReminderInfoQuery {
         + TrakrContract.Reminders.TABLE_NAME
         + " where "
         + TrakrContract.Reminders.COLUMN_NAME_STATUS
-        + " = 'ACTIVE' and " + TrakrContract.Reminders.COLUMN_NAME_MED_TAKEN + " = '0'";
+        + " = 'ACTIVE' and "
+        + TrakrContract.Reminders.COLUMN_NAME_MED_TAKEN
+        + " = '0'";
   }
 }
 

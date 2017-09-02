@@ -6,7 +6,9 @@ package medtrakr.cricbuzz.ethens.medtrakr.eventbus;
 
 public class ReminderModificationEvent {
 
-  public static class ReminderDeleteEvent{}
+  public static class ReminderDeleteEvent {
+  }
 
-  public static class NewReminderAddedEvent{}
+  public static class NewReminderAddedEvent {
+  }
 }

@@ -5,7 +5,6 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.util.Log;
 import java.util.Calendar;
 import java.util.Set;
@@ -31,13 +30,10 @@ public class Alarm extends BroadcastReceiver {
 
   private void showNotification(final Context context, final Intent intent) {
     String action = intent.getAction();
-    boolean isRecurring =
-        intent.getExtras().getBoolean(("recurring"), false);
+    boolean isRecurring = intent.getExtras().getBoolean(("recurring"), false);
     Log.d(TAG + "Receiver", "Broadcast received: " + action);
 
-    displayNotification(context,
-          intent.getStringExtra("message"), intent, isRecurring);
-
+    displayNotification(context, intent.getStringExtra("message"), intent, isRecurring);
   }
 
   /**
@@ -46,16 +42,16 @@ public class Alarm extends BroadcastReceiver {
    * @param receivedIntent Intent
    * @param isRecurring Recurring Reminder
    */
-  private void displayNotification(final Context context,
-      final String message, Intent receivedIntent, boolean isRecurring) {
+  private void displayNotification(final Context context, final String message,
+      Intent receivedIntent, boolean isRecurring) {
 
     Intent intent = new Intent(context, CalendarActivity.class);
     intent.putExtra(context.getString(R.string.ALARM), true);
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     intent.setAction(context.getString(R.string.ACTION_STRING) + System.currentTimeMillis());
 
-    TrakrNotificationBuilder.buildNotification(context, intent,
-        "Reminder to take Medicine", message, 1 ,true);
+    TrakrNotificationBuilder.buildNotification(context, intent, "Reminder to take Medicine",
+        message, 1, true);
 
     if (isRecurring) {
       Calendar calendar = Calendar.getInstance();

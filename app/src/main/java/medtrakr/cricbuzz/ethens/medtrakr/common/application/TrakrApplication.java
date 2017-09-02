@@ -9,11 +9,10 @@ import medtrakr.cricbuzz.ethens.medtrakr.di.ComponentFactory;
  * Created by ethens on 01/09/17.
  */
 
-public class TrakrApplication extends Application{
+public class TrakrApplication extends Application {
   private Set<Integer> intentSet;
 
-  @Override
-  public void onCreate() {
+  @Override public void onCreate() {
     super.onCreate();
     ComponentFactory.getInstance().initializeComponent(this);
   }
@@ -32,5 +31,4 @@ public class TrakrApplication extends Application{
   public void setIntentSet(Set<Integer> intentSet) {
     this.intentSet = intentSet;
   }
-
 }

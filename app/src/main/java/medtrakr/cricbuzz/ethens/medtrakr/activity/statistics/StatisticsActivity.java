@@ -2,7 +2,6 @@ package medtrakr.cricbuzz.ethens.medtrakr.activity.statistics;
 
 import android.os.Bundle;
 import android.view.View;
-import de.greenrobot.event.EventBus;
 import medtrakr.cricbuzz.ethens.medtrakr.R;
 import medtrakr.cricbuzz.ethens.medtrakr.activity.common.BaseActivity;
 import medtrakr.cricbuzz.ethens.medtrakr.di.ComponentFactory;
@@ -25,8 +24,4 @@ public class StatisticsActivity extends BaseActivity {
   @Override public void setupComponent() {
     ComponentFactory.getInstance().getCalendarComponent().inject(this);
   }
-
-
-
-
 }

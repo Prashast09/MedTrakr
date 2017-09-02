@@ -1,4 +1,3 @@
-
 package medtrakr.cricbuzz.ethens.medtrakr.adapter;
 
 import android.support.v7.widget.RecyclerView;
@@ -16,8 +15,7 @@ import medtrakr.cricbuzz.ethens.medtrakr.eventbus.CalendarNavigationEvents;
  * Adapter for reminder cards in the bottom list of the CalendarActivity
  */
 
-public class CalendarListAdapter
-    extends RecyclerView.Adapter<CalendarCardViewHolder> {
+public class CalendarListAdapter extends RecyclerView.Adapter<CalendarCardViewHolder> {
 
   private List<ReminderConfig> mConfigList;
 

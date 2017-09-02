@@ -6,7 +6,7 @@ package medtrakr.cricbuzz.ethens.medtrakr.database;
 
 public class TrakrContract {
 
-  public TrakrContract(){
+  public TrakrContract() {
 
   }
 
@@ -21,6 +21,5 @@ public class TrakrContract {
     public static final String COLUMN_NAME_INTENT_ID = "intentId";
     public static final String COLUMN_NAME_DATE = "date";
     public static final String COLUMN_NAME_MED_TAKEN = "medTaken";
-
   }
 }

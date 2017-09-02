@@ -17,7 +17,6 @@ import java.util.Locale;
 import javax.inject.Inject;
 import javax.inject.Named;
 import medtrakr.cricbuzz.ethens.medtrakr.R;
-import medtrakr.cricbuzz.ethens.medtrakr.activity.common.BaseActivity;
 import medtrakr.cricbuzz.ethens.medtrakr.adapter.CalendarListAdapter;
 import medtrakr.cricbuzz.ethens.medtrakr.common.constants.DateFormatterConstants;
 import medtrakr.cricbuzz.ethens.medtrakr.common.listener.DateClickedListener;
@@ -32,7 +31,7 @@ import medtrakr.cricbuzz.ethens.medtrakr.utils.ReminderHelper;
  * Created by ethens on 01/09/17.
  */
 
-public class  CalendarViewHolder extends BaseHolderEventBus{
+public class CalendarViewHolder extends BaseHolderEventBus {
 
   @Inject @Named("allReminders") List<ReminderConfig> allReminders;
   @Inject ReminderHelper reminderHelper;
@@ -57,7 +56,6 @@ public class  CalendarViewHolder extends BaseHolderEventBus{
     setDataToView();
     setListeners();
   }
-
 
   /**
    * Sets Config List to Calendar
@@ -204,5 +202,4 @@ public class  CalendarViewHolder extends BaseHolderEventBus{
     calendar.setSelectedDay(Integer.valueOf(DateFormatterConstants.
         dayFormatter.format(currentlySelectedDate)));
   }
-
 }

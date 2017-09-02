@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import java.util.Date;
 import javax.inject.Inject;
-import medtrakr.cricbuzz.ethens.medtrakr.R;
 import medtrakr.cricbuzz.ethens.medtrakr.common.receiver.Alarm;
 import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
 
@@ -25,8 +24,8 @@ public class AlarmUtils {
   /**
    * Set alarms for the user based on the reminders fetched from the server
    */
-  public void setAlarms(ReminderConfig newReminderConfig, boolean update, String intentId, int oldIntentId,
-      String oldNotificationMessage) {
+  public void setAlarms(ReminderConfig newReminderConfig, boolean update, String intentId,
+      int oldIntentId, String oldNotificationMessage) {
 
     if (newReminderConfig == null || !(String.valueOf(newReminderConfig.getReminderTime()) == null
         && String.valueOf(newReminderConfig.getReminderTime()) == (null))) {
@@ -74,16 +73,13 @@ public class AlarmUtils {
 
     if (reminderDate > 0) {
       Intent notificationMessage = new Intent(context, Alarm.class);
-      notificationMessage.putExtra("message",
-          reminderConfig.getReminderText());
+      notificationMessage.putExtra("message", reminderConfig.getReminderText());
 
-        PendingIntent pi = PendingIntent.getBroadcast(context, intentId, notificationMessage,
-            PendingIntent.FLAG_UPDATE_CURRENT);
+      PendingIntent pi = PendingIntent.getBroadcast(context, intentId, notificationMessage,
+          PendingIntent.FLAG_UPDATE_CURRENT);
 
-        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + reminderDate,
-            pi);
+      am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + reminderDate, pi);
     }
   }
-
 }
 

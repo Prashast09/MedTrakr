@@ -41,7 +41,7 @@ public class ReminderModificationDao extends BaseDao {
       reminderId = writeableDatabase.insert(TrakrContract.Reminders.TABLE_NAME, null, cv);
       EventBus.getDefault().post(new ReminderModificationEvent.NewReminderAddedEvent());
     }
-    alarmUtils.setAlarms(reminderConfig, update,reminderConfig.getIntentId(), oldIntentId,
+    alarmUtils.setAlarms(reminderConfig, update, reminderConfig.getIntentId(), oldIntentId,
         oldNotificationMessage);
     EventBus.getDefault().post(new AppCommonEvent.ReminderModifiedEvent());
     return reminderId;

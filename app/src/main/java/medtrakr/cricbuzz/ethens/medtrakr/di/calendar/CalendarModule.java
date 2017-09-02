@@ -10,11 +10,11 @@ import medtrakr.cricbuzz.ethens.medtrakr.activity.common.BaseActivity;
  * Created by ethens on 01/09/17.
  */
 
-@Module
-public class CalendarModule {
+@Module public class CalendarModule {
 
   BaseActivity mBaseActivity;
-  public CalendarModule(CalendarActivity calendarActivity){
+
+  public CalendarModule(CalendarActivity calendarActivity) {
     this.mBaseActivity = calendarActivity;
   }
 

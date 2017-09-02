@@ -10,9 +10,7 @@ import medtrakr.cricbuzz.ethens.medtrakr.database.ReminderInfoDao;
 /**
  * Created by ethens on 02/09/17.
  */
-@Module
-public class ReminderDaoMOdule {
-
+@Module public class ReminderDaoMOdule {
 
   @Provides @CalendarScope @Named("allReminders")
   /**

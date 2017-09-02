@@ -11,10 +11,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
-import java.io.InputStream;
-import java.net.URL;
 import medtrakr.cricbuzz.ethens.medtrakr.R;
-import medtrakr.cricbuzz.ethens.medtrakr.utils.StringUtils;
 
 /**
  * Created by ethens on 02/09/17.
@@ -34,8 +31,7 @@ public class TrakrNotificationBuilder {
    * null.
    */
   public static void buildNotification(Context context, Intent targetIntent, String title,
-      String message, int notificationId,
-      boolean isAnActivityAction) {
+      String message, int notificationId, boolean isAnActivityAction) {
     NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
     inboxStyle.setBigContentTitle(title);
     inboxStyle.addLine(message);
@@ -74,6 +70,4 @@ public class TrakrNotificationBuilder {
         getSystemService(Context.NOTIFICATION_SERVICE);
     mNotificationManager.notify(notificationId, mBuilder.build());
   }
-
-
 }

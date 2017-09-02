@@ -1,8 +1,8 @@
 package medtrakr.cricbuzz.ethens.medtrakr.utils;
 
-import android.support.v7.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.util.Log;
 import android.widget.Toast;
@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 import javax.inject.Inject;
-import javax.inject.Named;
 import medtrakr.cricbuzz.ethens.medtrakr.R;
 import medtrakr.cricbuzz.ethens.medtrakr.activity.common.BaseActivity;
 import medtrakr.cricbuzz.ethens.medtrakr.common.constants.DateFormatterConstants;
@@ -28,6 +27,7 @@ public class ReminderHelper {
   private static final String TAG = ReminderHelper.class.getSimpleName();
   @Inject Context context;
   @Inject ReminderModificationDao reminderModificationDao;
+
   @Inject ReminderHelper() {
   }
 
@@ -54,15 +54,12 @@ public class ReminderHelper {
 
   /**
    * Sets up the dialog for both dialog types below
-   *
    */
   public void setupDialog(BaseActivity baseActivity) {
 
     CharSequence[] strings = context.getResources().getStringArray(R.array.repeatReminderDialog);
     AlertDialog.Builder builder = new AlertDialog.Builder(baseActivity);
-    builder.setTitle(Html.fromHtml("<font color='#000000'>"
-          + "Select Frequency"
-          + "</font>"));
+    builder.setTitle(Html.fromHtml("<font color='#000000'>" + "Select Frequency" + "</font>"));
 
     builder.setItems(strings, (dialogInterface, i) -> {
       EventBus.getDefault()
@@ -80,10 +77,10 @@ public class ReminderHelper {
    */
   @SuppressWarnings("unchecked") public boolean validateData(ReminderConfig mReminderConfig) {
     if (StringUtils.isBlank(mReminderConfig.getReminderText())) {
-      Toast.makeText(context,"Please enter reminder purpose",Toast.LENGTH_SHORT).show();
+      Toast.makeText(context, "Please enter reminder purpose", Toast.LENGTH_SHORT).show();
       return false;
     } else if (mReminderConfig.getReminderTime() == null) {
-      Toast.makeText(context,"Please enter reminder Date/Time",Toast.LENGTH_SHORT).show();
+      Toast.makeText(context, "Please enter reminder Date/Time", Toast.LENGTH_SHORT).show();
       return false;
     }
     return true;
@@ -138,34 +135,40 @@ public class ReminderHelper {
     Calendar cal1 = Calendar.getInstance();
     cal1.setTime(date);
     List<ReminderConfig> reminders = new ArrayList<>();
-    if(reminderConfigList != null) {
+    if (reminderConfigList != null) {
       for (ReminderConfig reminderConfig : reminderConfigList) {
         Calendar cal2 = Calendar.getInstance();
         cal2.setTime(reminderConfig.getReminderTime());
-        if (cal1.get(Calendar.YEAR) <= cal2.get(Calendar.YEAR) && cal1.get(Calendar.DAY_OF_YEAR) < cal2.get(Calendar.DAY_OF_YEAR)) {
+        if (cal1.get(Calendar.YEAR) <= cal2.get(Calendar.YEAR)
+            && cal1.get(Calendar.DAY_OF_YEAR) < cal2.get(Calendar.DAY_OF_YEAR)) {
           continue;
         }
 
-        if (reminderConfig.getRecurringType() == context.getResources().getInteger(R.integer.RECURRING_MONTHLY)) {
+        if (reminderConfig.getRecurringType() == context.getResources()
+            .getInteger(R.integer.RECURRING_MONTHLY)) {
           boolean finalRecurringFilter;
           if (lastDate) {
             // for eg: if user sets 31st of January as a reminder-
             // it sets repetition for 28th feb, 29th feb, 30th april
-            finalRecurringFilter = (cal1.get(Calendar.DAY_OF_MONTH) == cal2.get(Calendar.DAY_OF_MONTH)
-                || cal1.get(Calendar.DAY_OF_MONTH) + 1 == cal2.get(Calendar.DAY_OF_MONTH)
-                || cal1.get(Calendar.DAY_OF_MONTH) + 2 == cal2.get(Calendar.DAY_OF_MONTH)
-                || cal1.get(Calendar.DAY_OF_MONTH) + 3 == cal2.get(Calendar.DAY_OF_MONTH));
+            finalRecurringFilter =
+                (cal1.get(Calendar.DAY_OF_MONTH) == cal2.get(Calendar.DAY_OF_MONTH)
+                    || cal1.get(Calendar.DAY_OF_MONTH) + 1 == cal2.get(Calendar.DAY_OF_MONTH)
+                    || cal1.get(Calendar.DAY_OF_MONTH) + 2 == cal2.get(Calendar.DAY_OF_MONTH)
+                    || cal1.get(Calendar.DAY_OF_MONTH) + 3 == cal2.get(Calendar.DAY_OF_MONTH));
           } else {
-            finalRecurringFilter = cal1.get(Calendar.DAY_OF_MONTH) == cal2.get(Calendar.DAY_OF_MONTH);
+            finalRecurringFilter =
+                cal1.get(Calendar.DAY_OF_MONTH) == cal2.get(Calendar.DAY_OF_MONTH);
           }
           if (finalRecurringFilter) {
             reminders.add(reminderConfig);
           }
-        } else if (reminderConfig.getRecurringType() == context.getResources().getInteger(R.integer.RECURRING_WEEKLY)) {
+        } else if (reminderConfig.getRecurringType() == context.getResources()
+            .getInteger(R.integer.RECURRING_WEEKLY)) {
           if (cal2.get(Calendar.DAY_OF_WEEK) == cal1.get(Calendar.DAY_OF_WEEK)) {
             reminders.add(reminderConfig);
           }
-        } else if (reminderConfig.getRecurringType() == context.getResources().getInteger(R.integer.RECURRING_DAILY)) {
+        } else if (reminderConfig.getRecurringType() == context.getResources()
+            .getInteger(R.integer.RECURRING_DAILY)) {
           reminders.add(reminderConfig);
         } else {
           if (cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)
@@ -177,5 +180,4 @@ public class ReminderHelper {
     }
     return reminders;
   }
-
 }

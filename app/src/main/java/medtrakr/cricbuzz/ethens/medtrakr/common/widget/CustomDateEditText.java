@@ -20,7 +20,8 @@ import medtrakr.cricbuzz.ethens.medtrakr.utils.StringUtils;
  * Created by ethens on 02/09/17.
  */
 
-public class CustomDateEditText extends AppCompatEditText implements DatePickerDialog.OnDateSetListener {
+public class CustomDateEditText extends AppCompatEditText
+    implements DatePickerDialog.OnDateSetListener {
   CustomClickListener customClickListener;
   private DatePickerDialog datePicker;
   private int mAccentColor;
@@ -38,6 +39,28 @@ public class CustomDateEditText extends AppCompatEditText implements DatePickerD
   public CustomDateEditText(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
     setupClickListener(context);
+  }
+
+  protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+  }
+
+  @Override
+  public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+    setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+  }
+
+  public static Context getActivity(Context context) {
+    if (context instanceof Activity) {
+      return context;
+    } else if (context instanceof ContextThemeWrapper) {
+      return getActivity(((ContextWrapper) context).getBaseContext());
+    }
+    return null;
+  }
+
+  public void setColor(int color) {
+    mAccentColor = color;
   }
 
   private void setupClickListener(final Context context) {
@@ -66,29 +89,6 @@ public class CustomDateEditText extends AppCompatEditText implements DatePickerD
         customClickListener.onCustomClick();
       }
     });
-  }
-
-  public static Context getActivity(Context context) {
-    if (context instanceof Activity) {
-      return context;
-    } else if (context instanceof ContextThemeWrapper) {
-      return getActivity(((ContextWrapper) context).getBaseContext());
-    }
-    return null;
-  }
-  
-  protected void onDraw(Canvas canvas) {
-    super.onDraw(canvas);
-  }
-
-  @Override
-  public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-    setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-  }
-
-
-  public void setColor(int color) {
-    mAccentColor = color;
   }
 
   interface CustomClickListener {

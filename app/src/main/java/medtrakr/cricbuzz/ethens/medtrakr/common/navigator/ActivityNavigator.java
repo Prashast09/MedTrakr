@@ -1,11 +1,9 @@
 package medtrakr.cricbuzz.ethens.medtrakr.common.navigator;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import javax.inject.Inject;
-import medtrakr.cricbuzz.ethens.medtrakr.R;
 import medtrakr.cricbuzz.ethens.medtrakr.activity.calendar.CalendarActivity;
 import medtrakr.cricbuzz.ethens.medtrakr.activity.common.BaseActivity;
 import medtrakr.cricbuzz.ethens.medtrakr.activity.reminder.AddReminderActivity;
@@ -17,19 +15,23 @@ import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
 
 public class ActivityNavigator {
 
-  @Inject
-  public ActivityNavigator(){
+  @Inject public ActivityNavigator() {
 
   }
 
   public void openReminderDetailActivity(CalendarActivity calendarActivity,
       ReminderConfig reminderConfig) {
-    if(reminderConfig != null){
-      startActivity(calendarActivity,AddReminderActivity.class,getReminderDetailBundle(reminderConfig));
+    if (reminderConfig != null) {
+      startActivity(calendarActivity, AddReminderActivity.class,
+          getReminderDetailBundle(reminderConfig));
+    } else {
+      startActivity(calendarActivity, AddReminderActivity.class);
     }
-    else
-      startActivity(calendarActivity,AddReminderActivity.class);
+  }
 
+  public void startActivity(Activity context, Class targetActivity) {
+    Intent intent = new Intent(context, targetActivity);
+    context.startActivity(intent);
   }
 
   protected Bundle getReminderDetailBundle(ReminderConfig reminderConfig) {
@@ -44,11 +46,6 @@ public class ActivityNavigator {
       intent.putExtra("source", context.getClass().getSimpleName());
     }
     intent.putExtras(extras);
-    context.startActivity(intent);
-  }
-
-  public void startActivity(Activity context, Class targetActivity) {
-    Intent intent = new Intent(context, targetActivity);
     context.startActivity(intent);
   }
 }

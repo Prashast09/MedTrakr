@@ -2,7 +2,6 @@ package medtrakr.cricbuzz.ethens.medtrakr.activity.statistics;
 
 import android.view.View;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -26,28 +25,34 @@ public class StatisticsViewHolder {
   @Inject ReminderInfoDao reminderInfoDao;
 
   LineChart medTakenChart, medNotTakenChart;
-  public StatisticsViewHolder(View view){
+
+  public StatisticsViewHolder(View view) {
     ComponentFactory.getInstance().getCalendarComponent().inject(this);
 
     medNotTakenChart = (LineChart) view.findViewById(R.id.med_not_taken);
     medTakenChart = (LineChart) view.findViewById(R.id.med_taken);
 
     initializeDataSets();
+  }
 
-}
+  public static int getDaysLeftInCurrentMonth() {
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTime(new Date());
+    return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+  }
 
   private void initializeDataSets() {
     List<ReminderConfig> medTakenConfig = reminderInfoDao.getMedTakenConfig();
     ArrayList<Entry> medTakenEntry = createEntryPoints(medTakenConfig);
-    LineDataSet medDataSet = new LineDataSet(medTakenEntry,"Days of Month");
+    LineDataSet medDataSet = new LineDataSet(medTakenEntry, "Days of Month");
 
     List<ReminderConfig> noMedConfig = reminderInfoDao.getMedNotTakenConfig();
     ArrayList<Entry> noMedEntry = createEntryPoints(noMedConfig);
-    LineDataSet noMedDataSet = new LineDataSet(noMedEntry,"Days of Month");
+    LineDataSet noMedDataSet = new LineDataSet(noMedEntry, "Days of Month");
 
     ArrayList<String> labels = new ArrayList<>();
-    for(int i=1; i<=getDaysLeftInCurrentMonth();i++){
-      labels.add("Day "+i);
+    for (int i = 1; i <= getDaysLeftInCurrentMonth(); i++) {
+      labels.add("Day " + i);
     }
 
     medDataSet.setDrawCubic(true);
@@ -56,8 +61,7 @@ public class StatisticsViewHolder {
     medDataSet.setDrawFilled(true);
     noMedDataSet.setDrawFilled(true);
 
-    showGraph(medDataSet,noMedDataSet,labels);
-
+    showGraph(medDataSet, noMedDataSet, labels);
   }
 
   private void showGraph(LineDataSet medTakenEntry, LineDataSet noMedEntry,
@@ -68,23 +72,18 @@ public class StatisticsViewHolder {
     medTakenChart.setDescription("Hours on Y-axis");
 
     LineData noMedTakenLineData = new LineData(labels, noMedEntry);
-        medNotTakenChart.setData(noMedTakenLineData);
+    medNotTakenChart.setData(noMedTakenLineData);
     medNotTakenChart.setDescription("Hours on Y-axis");
-
   }
 
-  public static int getDaysLeftInCurrentMonth() {
-    Calendar calendar = Calendar.getInstance();
-    calendar.setTime(new Date());
-    return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-  }
-
-  private ArrayList<Entry> createEntryPoints(List<ReminderConfig> reminderConfigs){
+  private ArrayList<Entry> createEntryPoints(List<ReminderConfig> reminderConfigs) {
     ArrayList<Entry> entryArrayList = new ArrayList<>();
-     for(ReminderConfig reminderConfig: reminderConfigs){
-       int timeHour  =  Integer.parseInt(DateFormatterConstants.statsFormat.format(reminderConfig.getReminderTime()));
-       int dayOfMonth  =  Integer.parseInt(DateFormatterConstants.statsDateFormat.format(reminderConfig.getReminderTime()));
-      entryArrayList.add(new Entry(timeHour,dayOfMonth));
+    for (ReminderConfig reminderConfig : reminderConfigs) {
+      int timeHour = Integer.parseInt(
+          DateFormatterConstants.statsFormat.format(reminderConfig.getReminderTime()));
+      int dayOfMonth = Integer.parseInt(
+          DateFormatterConstants.statsDateFormat.format(reminderConfig.getReminderTime()));
+      entryArrayList.add(new Entry(timeHour, dayOfMonth));
     }
     return entryArrayList;
   }

@@ -2,7 +2,6 @@ package medtrakr.cricbuzz.ethens.medtrakr.database;
 
 import android.database.Cursor;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
@@ -17,12 +16,34 @@ public class ReminderInfoDao extends BaseDao {
 
   @Inject ReminderInfoQuery remindersQuery;
   @Inject RemindersOrm remindersOrm;
+
   @Inject ReminderInfoDao() {
   }
 
   public ReminderConfig getReminderWithId(long reminderId) {
     return getFirstRecord(remindersQuery.getReminderForId(reminderId),
         this::getCommonReminderConfig);
+  }
+
+  public List<ReminderConfig> getAllReminders() {
+    List<ReminderConfig> reminderConfigList = new ArrayList<>();
+    String query = remindersQuery.getAllReminders();
+    runRawQuery(query, cursor -> reminderConfigList.add(remindersOrm.getReminderConfig(cursor)));
+    return reminderConfigList;
+  }
+
+  public List<ReminderConfig> getMedTakenConfig() {
+    List<ReminderConfig> reminderConfigList = new ArrayList<>();
+    String query = remindersQuery.getMedTakenQuery();
+    runRawQuery(query, cursor -> reminderConfigList.add(remindersOrm.getReminderConfig(cursor)));
+    return reminderConfigList;
+  }
+
+  public List<ReminderConfig> getMedNotTakenConfig() {
+    List<ReminderConfig> reminderConfigList = new ArrayList<>();
+    String query = remindersQuery.getMedNotTakenQuery();
+    runRawQuery(query, cursor -> reminderConfigList.add(remindersOrm.getReminderConfig(cursor)));
+    return reminderConfigList;
   }
 
   private ReminderConfig getCommonReminderConfig(Cursor c) {
@@ -39,26 +60,5 @@ public class ReminderInfoDao extends BaseDao {
     reminderConfig.setIntentId(
         c.getString(c.getColumnIndex(TrakrContract.Reminders.COLUMN_NAME_INTENT_ID)));
     return reminderConfig;
-  }
-
-  public List<ReminderConfig> getAllReminders(){
-    List<ReminderConfig> reminderConfigList = new ArrayList<>();
-    String query = remindersQuery.getAllReminders();
-    runRawQuery(query, cursor -> reminderConfigList.add(remindersOrm.getReminderConfig(cursor)));
-    return reminderConfigList;
-  }
-
-  public List<ReminderConfig> getMedTakenConfig(){
-    List<ReminderConfig> reminderConfigList = new ArrayList<>();
-    String query = remindersQuery.getMedTakenQuery();
-    runRawQuery(query, cursor -> reminderConfigList.add(remindersOrm.getReminderConfig(cursor)));
-    return reminderConfigList;
-  }
-
-  public List<ReminderConfig> getMedNotTakenConfig(){
-    List<ReminderConfig> reminderConfigList = new ArrayList<>();
-    String query = remindersQuery.getMedNotTakenQuery();
-    runRawQuery(query, cursor -> reminderConfigList.add(remindersOrm.getReminderConfig(cursor)));
-    return reminderConfigList;
   }
 }

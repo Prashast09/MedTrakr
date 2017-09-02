@@ -33,16 +33,14 @@ public class AddReminderViewHolder extends BaseHolderEventBus {
 
   @Inject ReminderHelper reminderHelper;
   @Inject Context mContext;
-
+  RadioButton medTaken, medNotTaken;
   private LinearLayout save, delete;
   private EditText repeatReminderEditText;
   private View buttonSeparator;
-
   private CustomDateEditText reminderDate;
   private CutomTimeEditText reminderTime;
   private EditText reminderText, dosage;
   private RadioGroup radioGroup;
-  RadioButton medTaken, medNotTaken;
   // Global Config and Other Variables
   private ReminderConfig mReminderConfig;
   private Boolean isEditing;
@@ -80,12 +78,25 @@ public class AddReminderViewHolder extends BaseHolderEventBus {
     setListeners();
   }
 
-  private void setupComponent() {
-    ComponentFactory.getInstance().getCalendarComponent().inject(this);
+  @Override protected void refreshData() {
+
+  }
+
+  @Override protected void recreateLayout() {
+
+  }
+
+  public void onEventMainThread(CalendarNavigationEvents.DialogItemSelectionEvent event) {
+    repeatReminderEditText.setText(event.getText());
+    mReminderConfig.setRecurring(event.getData());
   }
 
   void deleteReminder() {
     reminderHelper.deleteReminder(mReminderConfig);
+  }
+
+  private void setupComponent() {
+    ComponentFactory.getInstance().getCalendarComponent().inject(this);
   }
 
   /**
@@ -104,13 +115,11 @@ public class AddReminderViewHolder extends BaseHolderEventBus {
       Boolean medicineTaken = mReminderConfig.getMedTaken();
       medTaken.setChecked(medicineTaken);
       medNotTaken.setChecked(!medicineTaken);
-
     } else {
-        reminderDate.setText(
-            DateFormatterConstants.reminderDateFormat.format(new Date()));
+      reminderDate.setText(DateFormatterConstants.reminderDateFormat.format(new Date()));
 
-        repeatReminderEditText.setText(reminderHelper.getReminderRepeatText(
-            mContext.getResources().getInteger(R.integer.RECURRING_NONE)));
+      repeatReminderEditText.setText(reminderHelper.getReminderRepeatText(
+          mContext.getResources().getInteger(R.integer.RECURRING_NONE)));
     }
   }
 
@@ -126,7 +135,6 @@ public class AddReminderViewHolder extends BaseHolderEventBus {
       delete.setVisibility(View.GONE);
       buttonSeparator.setVisibility(View.GONE);
       radioGroup.setVisibility(View.GONE);
-
     }
   }
 
@@ -143,11 +151,6 @@ public class AddReminderViewHolder extends BaseHolderEventBus {
     });
   }
 
-  public void onEventMainThread(CalendarNavigationEvents.DialogItemSelectionEvent event) {
-    repeatReminderEditText.setText(event.getText());
-    mReminderConfig.setRecurring(event.getData());
-  }
-
   private void saveMyData() {
     prepareConfigForSave();
     if (!isEditing) {
@@ -158,7 +161,6 @@ public class AddReminderViewHolder extends BaseHolderEventBus {
     if (reminderHelper.validateData(mReminderConfig)) {
       reminderHelper.saveReminder(mReminderConfig, isEditing);
       EventBus.getDefault().post(new AppCommonEvent.ReminderModifiedEvent());
-
     }
   }
 
@@ -170,14 +172,6 @@ public class AddReminderViewHolder extends BaseHolderEventBus {
     mReminderConfig.setReminderTime(calendar.getTime());
     mReminderConfig.setDosage(dosage.getText().toString());
     Boolean medicineTaken = medTaken.isChecked();
-    mReminderConfig.setMedTaken(medicineTaken );
-  }
-
-  @Override protected void refreshData() {
-
-  }
-
-  @Override protected void recreateLayout() {
-
+    mReminderConfig.setMedTaken(medicineTaken);
   }
 }

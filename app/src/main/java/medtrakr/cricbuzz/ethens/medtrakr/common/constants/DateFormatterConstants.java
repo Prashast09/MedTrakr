@@ -19,13 +19,9 @@ public class DateFormatterConstants {
   public static final SimpleDateFormat reminderTimeFormat =
       new SimpleDateFormat("HH:mm", Locale.UK);
 
-  public static final SimpleDateFormat statsFormat =
-      new SimpleDateFormat("HH", Locale.UK);
+  public static final SimpleDateFormat statsFormat = new SimpleDateFormat("HH", Locale.UK);
 
-  public static final SimpleDateFormat statsDateFormat =
-      new SimpleDateFormat("dd", Locale.UK);
+  public static final SimpleDateFormat statsDateFormat = new SimpleDateFormat("dd", Locale.UK);
 
   public static final SimpleDateFormat monthFormatter = new SimpleDateFormat("MMM", Locale.UK);
-
-
 }

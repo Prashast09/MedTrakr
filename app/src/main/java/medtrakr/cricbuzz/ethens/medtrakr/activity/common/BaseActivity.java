@@ -13,15 +13,21 @@ import medtrakr.cricbuzz.ethens.medtrakr.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-  @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
+  @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     //ComponentFactory.getInstance().getDashboardComponent(this).inject(this);
   }
 
-  @Override
-  public void onBackPressed() {
+  @Override public void onBackPressed() {
     super.onBackPressed();
+  }
+
+  public void getIntents() {
+
+  }
+
+  public void setupComponent() {
+    //ComponentFactory.getInstance().getDashboardComponent(this).inject(this);
   }
 
   protected void setupUI(int layoutId, int viewHolderId) {
@@ -31,10 +37,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     setupViewHolder(findViewById(viewHolderId));
   }
 
-  public void getIntents() {
-
-  }
-
   abstract protected void setupViewHolder(View view);
 
   protected void initializeToolbar(String title) {
@@ -42,8 +44,4 @@ public abstract class BaseActivity extends AppCompatActivity {
     toolbar.setTitle(title);
     toolbar.setTitleTextColor(0xffffffff);
   }
-  public void setupComponent() {
-    //ComponentFactory.getInstance().getDashboardComponent(this).inject(this);
-  }
-
 }

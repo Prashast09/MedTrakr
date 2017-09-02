@@ -12,19 +12,24 @@ public class CalendarNavigationEvents {
 
     ReminderConfig reminderConfig;
 
-    public ReminderConfig getReminderConfig() {
-      return reminderConfig;
-    }
-
     public ReminderCardClickEvent(ReminderConfig reminderConfig) {
 
       this.reminderConfig = reminderConfig;
     }
+
+    public ReminderConfig getReminderConfig() {
+      return reminderConfig;
+    }
   }
 
-  public static class DialogItemSelectionEvent{
+  public static class DialogItemSelectionEvent {
     private String text;
     private Integer data;
+
+    public DialogItemSelectionEvent(String text, Integer data) {
+      this.text = text;
+      this.data = data;
+    }
 
     public String getText() {
       return text;
@@ -32,12 +37,6 @@ public class CalendarNavigationEvents {
 
     public Integer getData() {
       return data;
-    }
-
-    public DialogItemSelectionEvent(String text, Integer data) {
-      this.text = text;
-      this.data = data;
-
     }
   }
 }

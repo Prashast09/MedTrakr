@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import javax.inject.Inject;
@@ -13,7 +14,6 @@ import medtrakr.cricbuzz.ethens.medtrakr.R;
 import medtrakr.cricbuzz.ethens.medtrakr.common.lambda.ParameterCallback;
 import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
 import medtrakr.cricbuzz.ethens.medtrakr.di.ComponentFactory;
-import java.util.Calendar;
 
 public class CalendarCardViewHolder extends RecyclerView.ViewHolder {
 
@@ -57,7 +57,6 @@ public class CalendarCardViewHolder extends RecyclerView.ViewHolder {
     reminderTimeMinute.setText(String.format(Locale.UK, "%1$02d", calendar.get(Calendar.MINUTE)));
     reminderTimeMeridian.setText(String.valueOf(calendar.get(Calendar.MINUTE)));
     reminderTimeMeridian.setText((calendar.get(Calendar.AM_PM) == 0) ? "AM" : "PM");
-
   }
 
   /**

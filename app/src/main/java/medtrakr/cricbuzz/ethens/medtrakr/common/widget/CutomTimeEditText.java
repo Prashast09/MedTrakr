@@ -9,7 +9,6 @@ import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.util.Log;
-import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 import java.text.ParseException;
@@ -23,7 +22,8 @@ import medtrakr.cricbuzz.ethens.medtrakr.utils.StringUtils;
  * Created by ethens on 02/09/17.
  */
 
-public class CutomTimeEditText extends AppCompatEditText implements TimePickerDialog.OnTimeSetListener{
+public class CutomTimeEditText extends AppCompatEditText
+    implements TimePickerDialog.OnTimeSetListener {
 
   CustomClickListener customClickListener;
   private TimePickerDialog timePicker;
@@ -44,6 +44,29 @@ public class CutomTimeEditText extends AppCompatEditText implements TimePickerDi
     setupClickListener(context);
   }
 
+  protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+  }
+
+  @Override public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute, int second) {
+    String hour = String.format(Locale.UK, "%1$02d", hourOfDay);
+    String minutes = String.format(Locale.UK, "%1$02d", minute);
+    setText(String.format("%s:%s", hour, minutes));
+  }
+
+  public void setColor(int color) {
+    mAccentColor = color;
+  }
+
+  public static Context getActivity(Context context) {
+    if (context instanceof Activity) {
+      return context;
+    } else if (context instanceof ContextThemeWrapper) {
+      return getActivity(((ContextWrapper) context).getBaseContext());
+    }
+    return null;
+  }
+
   private void setupClickListener(final Context context) {
     setFocusable(false);
     setClickable(false);
@@ -59,12 +82,12 @@ public class CutomTimeEditText extends AppCompatEditText implements TimePickerDi
         }
       }
       timePicker =
-          TimePickerDialog.newInstance((TimePickerDialog.OnTimeSetListener) CutomTimeEditText.this, now.get(Calendar.HOUR_OF_DAY),
-              now.get(Calendar.MINUTE), false);
+          TimePickerDialog.newInstance((TimePickerDialog.OnTimeSetListener) CutomTimeEditText.this,
+              now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), false);
       if (mAccentColor != 0) {
         timePicker.setAccentColor(mAccentColor);
       }
-      AppCompatActivity activity = ((AppCompatActivity)getActivity(context));
+      AppCompatActivity activity = ((AppCompatActivity) getActivity(context));
       if (activity != null) timePicker.show(activity.getFragmentManager(), "Timepickerdialog");
       if (customClickListener != null) {
         customClickListener.onCustomClick();
@@ -72,30 +95,7 @@ public class CutomTimeEditText extends AppCompatEditText implements TimePickerDi
     });
   }
 
-  protected void onDraw(Canvas canvas) {
-    super.onDraw(canvas);
-  }
-
-  @Override public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute, int second) {
-    String hour = String.format(Locale.UK, "%1$02d", hourOfDay);
-    String minutes = String.format(Locale.UK, "%1$02d", minute);
-    setText(String.format("%s:%s", hour, minutes));
-  }
-
-  public void setColor(int color) {
-    mAccentColor = color;
-  }
-
   interface CustomClickListener {
     void onCustomClick();
-  }
-
-  public static Context getActivity(Context context) {
-    if (context instanceof Activity) {
-      return context;
-    } else if (context instanceof ContextThemeWrapper) {
-      return getActivity(((ContextWrapper) context).getBaseContext());
-    }
-    return null;
   }
 }

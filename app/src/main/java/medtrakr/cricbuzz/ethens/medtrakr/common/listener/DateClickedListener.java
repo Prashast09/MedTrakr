@@ -6,7 +6,7 @@ package medtrakr.cricbuzz.ethens.medtrakr.common.listener;
 
 public interface DateClickedListener {
 
-    void onDateClick(int day, int month, int year, boolean lastDate, String monthName);
+  void onDateClick(int day, int month, int year, boolean lastDate, String monthName);
 
-    void onMonthChangeClick();
+  void onMonthChangeClick();
 }

@@ -16,24 +16,23 @@ import medtrakr.cricbuzz.ethens.medtrakr.di.database.DatabaseModule;
  * Created by earthshaker on 9/26/2016.
  */
 @CalendarScope
-@Subcomponent(modules = {ReminderDaoMOdule.class,DatabaseModule.class, CalendarModule.class})
+@Subcomponent(modules = { ReminderDaoMOdule.class, DatabaseModule.class, CalendarModule.class })
 public interface CalendarComponent {
-    void inject(CalendarViewHolder calendarViewHolder);
+  void inject(CalendarViewHolder calendarViewHolder);
 
-    void inject(CalendarActivity calendarActivity);
+  void inject(CalendarActivity calendarActivity);
 
-    void inject(CalendarCardViewHolder calendarCardViewHolder);
+  void inject(CalendarCardViewHolder calendarCardViewHolder);
 
-    void inject(DBHelper dbHelper);
+  void inject(DBHelper dbHelper);
 
-    void inject(AddReminderActivity addReminderActivity);
+  void inject(AddReminderActivity addReminderActivity);
 
-    void inject(AddReminderViewHolder addReminderViewHolder);
+  void inject(AddReminderViewHolder addReminderViewHolder);
 
-    void inject(BaseDao baseDao);
+  void inject(BaseDao baseDao);
 
-    void inject(StatisticsActivity statisticsActivity);
+  void inject(StatisticsActivity statisticsActivity);
 
-    void inject(StatisticsViewHolder statisticsViewHolder);
-
+  void inject(StatisticsViewHolder statisticsViewHolder);
 }
