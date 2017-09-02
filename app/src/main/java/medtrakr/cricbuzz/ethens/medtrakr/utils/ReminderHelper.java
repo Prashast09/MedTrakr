@@ -77,7 +77,7 @@ public class ReminderHelper {
    */
   @SuppressWarnings("unchecked") public boolean validateData(ReminderConfig mReminderConfig) {
     if (StringUtils.isBlank(mReminderConfig.getReminderText())) {
-      Toast.makeText(context, "Please enter reminder purpose", Toast.LENGTH_SHORT).show();
+      Toast.makeText(context, "Please enter required field", Toast.LENGTH_SHORT).show();
       return false;
     } else if (mReminderConfig.getReminderTime() == null) {
       Toast.makeText(context, "Please enter reminder Date/Time", Toast.LENGTH_SHORT).show();
