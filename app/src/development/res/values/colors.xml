@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#80d267</color>
+  <color name="colorPrimaryDark">#15df52</color>
+  <color name="colorAccent">#a1a104</color>
+
+
+  <color name="next_month_color">#CCC3C3</color>
+  <color name="calendar_background_color">#80d267</color>
+  <color name="calendar_background_light_color">#80d267</color>
+  <color name="calendar_background_dark_color">#80d267</color>
+  <color name="calendar_selected_circle_color">#80d267</color>
+  <color name="calendar_fab_color">#80d267</color>
+
+  <color name="secondary_text_55alpha">#8d737373</color>
+
+  <color name="fab_ripple">#F7F7F7</color>
+
+  <color name="white">#ffffff</color>
+  <color name="accent_color">#a1d2f4</color>
+  <color name="date_picker_month_day">#80d267</color>
+  <color name="calendar_reminder">#80d267</color>
+
+  <color name="text_metallic">#445468</color>
+
+  <color name="trakr">#80d267</color>
+
+</resources>

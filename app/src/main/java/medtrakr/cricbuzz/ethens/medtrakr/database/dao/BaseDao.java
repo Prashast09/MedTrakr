@@ -1,4 +1,4 @@
-package medtrakr.cricbuzz.ethens.medtrakr.database;
+package medtrakr.cricbuzz.ethens.medtrakr.database.dao;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import medtrakr.cricbuzz.ethens.medtrakr.common.lambda.BaseCallback;
 import medtrakr.cricbuzz.ethens.medtrakr.common.lambda.ParameterCallback;
 import medtrakr.cricbuzz.ethens.medtrakr.common.lambda.ReturnCallback;
+import medtrakr.cricbuzz.ethens.medtrakr.database.CursorHelper;
 import medtrakr.cricbuzz.ethens.medtrakr.di.ComponentFactory;
 
 public class BaseDao {

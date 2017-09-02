@@ -8,7 +8,7 @@ import medtrakr.cricbuzz.ethens.medtrakr.activity.reminder.AddReminderViewHolder
 import medtrakr.cricbuzz.ethens.medtrakr.activity.statistics.StatisticsActivity;
 import medtrakr.cricbuzz.ethens.medtrakr.activity.statistics.StatisticsViewHolder;
 import medtrakr.cricbuzz.ethens.medtrakr.adapter.CalendarCardViewHolder;
-import medtrakr.cricbuzz.ethens.medtrakr.database.BaseDao;
+import medtrakr.cricbuzz.ethens.medtrakr.database.dao.BaseDao;
 import medtrakr.cricbuzz.ethens.medtrakr.database.DBHelper;
 import medtrakr.cricbuzz.ethens.medtrakr.di.database.DatabaseModule;
 

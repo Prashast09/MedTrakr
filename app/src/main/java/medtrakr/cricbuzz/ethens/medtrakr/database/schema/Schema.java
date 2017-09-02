@@ -1,4 +1,6 @@
-package medtrakr.cricbuzz.ethens.medtrakr.database;
+package medtrakr.cricbuzz.ethens.medtrakr.database.schema;
+
+import medtrakr.cricbuzz.ethens.medtrakr.database.contract.TrakrContract;
 
 /**
  * Created by ethens on 02/09/17.

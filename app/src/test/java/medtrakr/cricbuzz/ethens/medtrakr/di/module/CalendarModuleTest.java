@@ -11,9 +11,9 @@ import medtrakr.cricbuzz.ethens.medtrakr.di.calendar.CalendarScope;
 /**
  * Created by ethens on 02/09/17.
  */
-@Module
-public class CalendarModuleTest  extends CalendarModule{
+@Module public class CalendarModuleTest extends CalendarModule {
   BaseActivity mBaseActivity;
+
   public CalendarModuleTest(CalendarActivity calendarActivity) {
     super(calendarActivity);
   }

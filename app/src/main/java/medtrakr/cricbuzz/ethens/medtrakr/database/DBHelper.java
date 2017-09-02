@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import medtrakr.cricbuzz.ethens.medtrakr.di.ComponentFactory;
 
-import static medtrakr.cricbuzz.ethens.medtrakr.database.Schema.SQL_CREATE_REMINDERS;
+import static medtrakr.cricbuzz.ethens.medtrakr.database.schema.Schema.SQL_CREATE_REMINDERS;
 
 /**
  * Created by ethens on 02/09/17.

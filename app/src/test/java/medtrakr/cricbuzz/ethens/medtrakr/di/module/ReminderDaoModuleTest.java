@@ -5,7 +5,7 @@ import dagger.Provides;
 import java.util.List;
 import javax.inject.Named;
 import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
-import medtrakr.cricbuzz.ethens.medtrakr.database.ReminderInfoDao;
+import medtrakr.cricbuzz.ethens.medtrakr.database.dao.ReminderInfoDao;
 import medtrakr.cricbuzz.ethens.medtrakr.di.calendar.CalendarScope;
 import medtrakr.cricbuzz.ethens.medtrakr.di.calendar.ReminderDaoMOdule;
 
@@ -13,8 +13,7 @@ import medtrakr.cricbuzz.ethens.medtrakr.di.calendar.ReminderDaoMOdule;
  * Created by ethens on 02/09/17.
  */
 
-@Module
-public class ReminderDaoModuleTest extends ReminderDaoMOdule {
+@Module public class ReminderDaoModuleTest extends ReminderDaoMOdule {
 
   @Provides @CalendarScope @Named("allReminders")
   /**

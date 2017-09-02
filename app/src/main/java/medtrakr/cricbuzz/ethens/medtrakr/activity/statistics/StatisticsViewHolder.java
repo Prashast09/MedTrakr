@@ -13,7 +13,7 @@ import javax.inject.Inject;
 import medtrakr.cricbuzz.ethens.medtrakr.R;
 import medtrakr.cricbuzz.ethens.medtrakr.common.constants.DateFormatterConstants;
 import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
-import medtrakr.cricbuzz.ethens.medtrakr.database.ReminderInfoDao;
+import medtrakr.cricbuzz.ethens.medtrakr.database.dao.ReminderInfoDao;
 import medtrakr.cricbuzz.ethens.medtrakr.di.ComponentFactory;
 
 /**

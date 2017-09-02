@@ -1,4 +1,4 @@
-package medtrakr.cricbuzz.ethens.medtrakr.database;
+package medtrakr.cricbuzz.ethens.medtrakr.database.orm;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.inject.Inject;
 import medtrakr.cricbuzz.ethens.medtrakr.common.constants.DateFormatterConstants;
 import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
+import medtrakr.cricbuzz.ethens.medtrakr.database.contract.TrakrContract;
 
 /**
  * Created by ethens on 02/09/17.

@@ -1,9 +1,11 @@
-package medtrakr.cricbuzz.ethens.medtrakr.database;
+package medtrakr.cricbuzz.ethens.medtrakr.database.dao;
 
 import android.content.ContentValues;
 import de.greenrobot.event.EventBus;
 import javax.inject.Inject;
 import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
+import medtrakr.cricbuzz.ethens.medtrakr.database.orm.RemindersOrm;
+import medtrakr.cricbuzz.ethens.medtrakr.database.contract.TrakrContract;
 import medtrakr.cricbuzz.ethens.medtrakr.eventbus.AppCommonEvent;
 import medtrakr.cricbuzz.ethens.medtrakr.eventbus.ReminderModificationEvent;
 import medtrakr.cricbuzz.ethens.medtrakr.utils.AlarmUtils;

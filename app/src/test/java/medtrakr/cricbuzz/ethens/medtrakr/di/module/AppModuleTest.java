@@ -14,11 +14,11 @@ import medtrakr.cricbuzz.ethens.medtrakr.di.AppModule;
  */
 
 public class AppModuleTest extends AppModule {
+  public TrakrApplication trakrApplication;
+
   public AppModuleTest(TrakrApplication trakrApplication) {
     super(trakrApplication);
   }
-
-  public TrakrApplication trakrApplication;
 
   @Provides @Singleton TrakrApplication providesProductApplication() {
     return trakrApplication;
@@ -35,5 +35,4 @@ public class AppModuleTest extends AppModule {
   @Provides @Singleton Context providesContext() {
     return trakrApplication;
   }
-
 }

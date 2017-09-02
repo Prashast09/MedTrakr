@@ -19,7 +19,7 @@ import medtrakr.cricbuzz.ethens.medtrakr.activity.common.BaseActivity;
 import medtrakr.cricbuzz.ethens.medtrakr.common.constants.DateFormatterConstants;
 import medtrakr.cricbuzz.ethens.medtrakr.common.lambda.TwoParamReturn;
 import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
-import medtrakr.cricbuzz.ethens.medtrakr.database.ReminderModificationDao;
+import medtrakr.cricbuzz.ethens.medtrakr.database.dao.ReminderModificationDao;
 import medtrakr.cricbuzz.ethens.medtrakr.eventbus.CalendarNavigationEvents;
 
 public class ReminderHelper {

@@ -1,7 +1,7 @@
 package medtrakr.cricbuzz.ethens.medtrakr.database.query;
 
 import javax.inject.Inject;
-import medtrakr.cricbuzz.ethens.medtrakr.database.TrakrContract;
+import medtrakr.cricbuzz.ethens.medtrakr.database.contract.TrakrContract;
 
 /**
  * Created by ethens on 02/09/17.

@@ -5,7 +5,7 @@ import dagger.Provides;
 import java.util.List;
 import javax.inject.Named;
 import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
-import medtrakr.cricbuzz.ethens.medtrakr.database.ReminderInfoDao;
+import medtrakr.cricbuzz.ethens.medtrakr.database.dao.ReminderInfoDao;
 
 /**
  * Created by ethens on 02/09/17.

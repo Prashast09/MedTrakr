@@ -1,4 +1,4 @@
-package medtrakr.cricbuzz.ethens.medtrakr.database;
+package medtrakr.cricbuzz.ethens.medtrakr.database.contract;
 
 /**
  * Created by ethens on 02/09/17.

@@ -1,4 +1,4 @@
-package medtrakr.cricbuzz.ethens.medtrakr.database;
+package medtrakr.cricbuzz.ethens.medtrakr.database.dao;
 
 import android.database.Cursor;
 import java.util.ArrayList;
@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
 import medtrakr.cricbuzz.ethens.medtrakr.config.ReminderConfig;
+import medtrakr.cricbuzz.ethens.medtrakr.database.orm.RemindersOrm;
+import medtrakr.cricbuzz.ethens.medtrakr.database.contract.TrakrContract;
 import medtrakr.cricbuzz.ethens.medtrakr.database.query.ReminderInfoQuery;
 
 /**

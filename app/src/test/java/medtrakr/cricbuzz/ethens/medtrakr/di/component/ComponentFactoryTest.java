@@ -1,13 +1,7 @@
 package medtrakr.cricbuzz.ethens.medtrakr.di.component;
 
-import medtrakr.cricbuzz.ethens.medtrakr.common.application.TrakrApplication;
-import medtrakr.cricbuzz.ethens.medtrakr.di.AppModule;
 import medtrakr.cricbuzz.ethens.medtrakr.di.ComponentFactory;
-import medtrakr.cricbuzz.ethens.medtrakr.di.DaggerTrakrComponent;
 import medtrakr.cricbuzz.ethens.medtrakr.di.TrakrComponent;
-import medtrakr.cricbuzz.ethens.medtrakr.di.calendar.CalendarComponent;
-import medtrakr.cricbuzz.ethens.medtrakr.di.calendar.ReminderDaoMOdule;
-import medtrakr.cricbuzz.ethens.medtrakr.di.database.DatabaseModule;
 import medtrakr.cricbuzz.ethens.medtrakr.di.module.DatabaseModuleTest;
 import medtrakr.cricbuzz.ethens.medtrakr.di.module.ReminderDaoModuleTest;
 
@@ -33,7 +27,9 @@ public class ComponentFactoryTest extends ComponentFactory {
    */
   public CalendarComponentTest getCalendarComponent() {
     if (calendarComponentTest == null) {
-      calendarComponentTest = ((TrakrComponentTest)getTrakrComponent()).plus(new ReminderDaoModuleTest(), new DatabaseModuleTest());
+      calendarComponentTest =
+          ((TrakrComponentTest) getTrakrComponent()).plus(new ReminderDaoModuleTest(),
+              new DatabaseModuleTest());
     }
     return calendarComponentTest;
   }
