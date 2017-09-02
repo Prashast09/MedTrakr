@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.statistics.StatisticsActivity"
+    >
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:weightSum="2"
+      >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Statistics on when medicine was taken"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        />
+  <com.github.mikephil.charting.charts.LineChart
+      android:id="@+id/med_taken"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Statistics on when medicine was not taken"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        />
+  <com.github.mikephil.charting.charts.LineChart
+      android:id="@+id/med_not_taken"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"/>
+
+  </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

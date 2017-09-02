@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 tools:context=".activity.calendar.CalendarActivity">
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <medtrakr.cricbuzz.ethens.medtrakr.common.widget.DrawCal
+                android:id="@+id/calLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/calendar_background_color"/>
+
+       <LinearLayout
+                android:id="@+id/reminder_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/reminder_child_bottom_margin"
+                android:layout_marginTop="@dimen/reminder_child_top_margin"
+                android:gravity="center">
+
+            <TextView
+                    android:id="@+id/tv_reminder_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/secondary_text_55alpha"
+                    android:textSize="12sp"/>
+        </LinearLayout>
+
+        <include layout="@layout/no_data_layout"/>
+
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_reminder_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_add_reminder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/calendar_fab_margin_right"
+            android:layout_marginRight="@dimen/calendar_fab_margin_right"
+            app:layout_anchor="@id/calLayout"
+            app:layout_anchorGravity="bottom|right|end"
+        android:src="@drawable/fab_plus_64_new"
+        app:rippleColor="@color/fab_ripple"/>
+</android.support.design.widget.CoordinatorLayout>

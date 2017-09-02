@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <dimen name="reminder_child_top_margin">3dp</dimen>
+  <dimen name="reminder_child_bottom_margin">3dp</dimen>
+
+  <dimen name="calendar_fab_margin_right">15dp</dimen>
+
+  <dimen name="mdtp_cal_font_size">14sp</dimen>
+  <dimen name="mdtp_month_label_size">18sp</dimen>
+  <dimen name="mdtp_month_day_label_text_size">18sp</dimen>
+  <dimen name="mdtp_day_number_select_circle_radius">14dp</dimen>
+  <dimen name="major_row_gap">18dp</dimen>
+  <dimen name="minor_row_gap">16dp</dimen>
+  <dimen name="heading_row_gap">12dp</dimen>
+  <dimen name="day_label_gap">3dp</dimen>
+  <dimen name="reminder_indicator_circle_radius">2dp</dimen>
+
+</resources>

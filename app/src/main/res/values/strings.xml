@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">MedTrakr</string>
+  <string name="view_stats">View Statistics</string>
+  <string name="calendar_no_reminder">No Reminders</string>
+  <string name="calendar_reminders">Reminders</string>
+  <string name="ALARM">ALARM</string>
+  <string name="ACTION_STRING">trakrString</string>
+</resources>

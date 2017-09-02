@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+  <string-array name="repeatReminderDialog">
+    <item>Does Not Repeat</item>
+    <item>Daily</item>
+    <item>Weekly</item>
+    <item>Monthly</item>
+  </string-array>
+
+  <string name="reminder_date_picker_dialog">Select Reminder Date</string>
+  <string name="reminder_repeat_cycle_none">Does Not Repeat</string>
+  <string name="reminder_repeat_cycle_daily">Daily</string>
+  <string name="reminder_repeat_cycle_monthly">Monthly</string>
+  <string name="reminder_repeat_cycle_Weekly">Weekly</string>
+
+
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!--Reminder Constants-->
+    <integer name="RECURRING_NONE">0</integer>
+    <integer name="RECURRING_DAILY">1</integer>
+    <integer name="RECURRING_WEEKLY">2</integer>
+    <integer name="RECURRING_MONTHLY">3</integer>
+
+    <integer name="DATABASE_VERSION">1</integer>
+
+</resources>
