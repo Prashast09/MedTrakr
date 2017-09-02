@@ -29,6 +29,8 @@ android {
 dependencies {
   def supportLibraryVersion = '25.1.0'
   def daggerVersion = '2.7'
+  def mockitoVersion = '1.6.1'
+
 
   compile fileTree(dir: 'libs', include: ['*.jar'])
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -55,5 +57,14 @@ dependencies {
 
   //Charts
   compile 'org.quanqi:mpandroidchart:1.7.5'
+
+  //Mocking libraries
+  compile('org.powermock:powermock-api-mockito:' + mockitoVersion) {
+    exclude group: 'org.objenesis'
+  }
+  compile('org.powermock:powermock-module-junit4:' + mockitoVersion) {
+    exclude group: 'org.hamcrest'
+    exclude group: 'org.objenesis'
+  }
 
 }
